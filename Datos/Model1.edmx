@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PruebaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'Prueba.dbo.conjunto_de_datos_natalidad_2018' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="conjunto_de_datos_natalidad_2018">
+          <Property Name="ent_regis" Type="varchar" MaxLength="50" />
+          <Property Name="mun_regis" Type="varchar" MaxLength="50" />
+          <Property Name="loc_regis" Type="varchar" MaxLength="50" />
+          <Property Name="tloc_regis" Type="varchar" MaxLength="50" />
+          <Property Name="ent_resid" Type="varchar" MaxLength="50" />
+          <Property Name="mun_resid" Type="varchar" MaxLength="50" />
+          <Property Name="loc_resid" Type="varchar" MaxLength="50" />
+          <Property Name="tloc_resid" Type="varchar" MaxLength="50" />
+          <Property Name="ent_ocurr" Type="varchar" MaxLength="50" />
+          <Property Name="mun_ocurr" Type="varchar" MaxLength="50" />
+          <Property Name="loc_ocurr" Type="varchar" MaxLength="50" />
+          <Property Name="tloc_ocurr" Type="varchar" MaxLength="50" />
+          <Property Name="sexo" Type="varchar" MaxLength="50" />
+          <Property Name="edad_reg" Type="varchar" MaxLength="50" />
+          <Property Name="edad_madn" Type="varchar" MaxLength="50" />
+          <Property Name="edad_padn" Type="varchar" MaxLength="50" />
+          <Property Name="dia_nac" Type="varchar" MaxLength="50" />
+          <Property Name="mes_nac" Type="varchar" MaxLength="50" />
+          <Property Name="ano_nac" Type="varchar" MaxLength="50" />
+          <Property Name="dia_reg" Type="varchar" MaxLength="50" />
+          <Property Name="mes_reg" Type="varchar" MaxLength="50" />
+          <Property Name="ano_reg" Type="varchar" MaxLength="50" />
+          <Property Name="edad_madr" Type="varchar" MaxLength="50" />
+          <Property Name="edad_padr" Type="varchar" MaxLength="50" />
+          <Property Name="tipo_nac" Type="varchar" MaxLength="50" />
+          <Property Name="orden_part" Type="varchar" MaxLength="50" />
+          <Property Name="lugar_part" Type="varchar" MaxLength="50" />
+          <Property Name="q_atendio" Type="varchar" MaxLength="50" />
+          <Property Name="hijos_vivo" Type="varchar" MaxLength="50" />
+          <Property Name="hijos_sobr" Type="varchar" MaxLength="50" />
+          <Property Name="edociv_mad" Type="varchar" MaxLength="50" />
+          <Property Name="escol_mad" Type="varchar" MaxLength="50" />
+          <Property Name="escol_pad" Type="varchar" MaxLength="50" />
+          <Property Name="act_mad" Type="varchar" MaxLength="50" />
+          <Property Name="act_pad" Type="varchar" MaxLength="50" />
+          <Property Name="pos_mad" Type="varchar" MaxLength="50" />
+          <Property Name="pos_pad" Type="varchar" MaxLength="50" />
+          <Property Name="sitlab_mad" Type="varchar" MaxLength="50" />
+          <Property Name="sitlab_pad" Type="varchar" MaxLength="50" />
+          <Property Name="fue_prese" Type="varchar" MaxLength="50" />
+          <Property Name="hora_nac" Type="varchar" MaxLength="50" />
+          <Property Name="minuto_nac" Type="varchar" MaxLength="50" />
+          <Property Name="comparecio" Type="varchar" MaxLength="50" />
+          <Property Name="dis_re_oax" Type="varchar" MaxLength="50" />
+        </EntityType>-->
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityContainer Name="PruebaModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PruebaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityContainer Name="PruebaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PruebaModelStoreContainer" CdmEntityContainer="PruebaEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="PruebaModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
